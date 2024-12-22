@@ -1,4 +1,5 @@
 My "stupidly" simple neovim config for coding
+
 Plugins :
 - lazy : plugin manager
 - oils : file manager
