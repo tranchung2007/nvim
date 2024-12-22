@@ -5,5 +5,5 @@ Plugins :
 - oils : file manager
 - mason, nvim-cmp, nonels : lsp completion and formating
 - treesister : syntax highlighting
-- overseer : build single cpp file with xfce4-terminal
+- fterm to build single cpp file
 - ...
