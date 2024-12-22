@@ -5,5 +5,5 @@ Plugins :
 - oils : file manager
 - mason, nvim-cmp, nonels : lsp completion and formating
 - treesister : syntax highlighting
-- fterm to build single cpp file
-- ...
+- fterm : to build single cpp file and input
+- ... and some stuff
