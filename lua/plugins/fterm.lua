@@ -14,7 +14,7 @@ return {
 			local filepath = vim.fn.expand("%:p")
 			local filename = vim.fn.expand("%:t:r")
 			local cmd = string.format(
-				'g++ -std=c++14 -O2 "%s" -o "%s.out" && ./%s.out; echo; echo Press ENTER to continue; read line; rm -r %s.out',
+				'g++ -std=c++14 -O2 "%s" -o "%s.out" && ./%s.out; echo; echo; echo Press ENTER to continue; read line; rm -r %s.out',
 				filepath,
 				filename,
 				filename,

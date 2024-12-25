@@ -9,7 +9,7 @@ return {
 				show_icon = false,
 				fnamemodify = ":t",
 				modify_indicator = "*",
-				no_name = "No name",
+				no_name = " :(( ",
 				brackets = { "", "" },
 				inactive_tab_max_length = 0,
 			})

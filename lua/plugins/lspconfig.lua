@@ -22,6 +22,9 @@ return {
 		},
 		lazy = false,
 		config = function()
+			for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+				vim.api.nvim_set_hl(0, group, {})
+			end
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({
@@ -41,6 +44,12 @@ return {
 				},
 			})
 			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.bashls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.hyprls.setup({
 				capabilities = capabilities,
 			})
 		end,
