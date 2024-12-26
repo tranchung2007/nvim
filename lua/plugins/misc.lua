@@ -13,6 +13,10 @@ return {
 				brackets = { "", "" },
 				inactive_tab_max_length = 0,
 			})
+			vim.api.nvim_set_keymap("n", "<leader>n", ":tabnext<CR>", { noremap = true, silent = true })
+			vim.api.nvim_set_keymap("n", "<leader>p", ":tabprev<CR>", { noremap = true, silent = true })
+			-- vim.api.nvim_set_keymap("n", "<leader>f", ":tabfirst<CR>", { noremap = true, silent = true })
+			-- vim.api.nvim_set_keymap("n", "<leader>l", ":tablast<CR>", { noremap = true, silent = true })
 		end,
 	},
 }
