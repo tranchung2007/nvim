@@ -3,7 +3,7 @@ return {
 	---@module 'oil'
 	---@type oil.SetupOpts
 	opts = {},
-	dependencies = { { "echasnovski/mini.icons", opts = {} } },
+	-- dependencies = { { "echasnovski/mini.icons", opts = {} } },
 	config = function()
 		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 		require("oil").setup({
@@ -91,10 +91,10 @@ return {
 				end,
 			},
 			float = {
-				padding = 2,
-				max_width = 0,
-				max_height = 0,
-				border = "rounded",
+				padding = 5,
+				max_width = 80,
+				max_height = 70,
+				border = "none",
 				win_options = {
 					winblend = 0,
 				},
@@ -119,7 +119,7 @@ return {
 				max_height = 0.9,
 				min_height = { 5, 0.1 },
 				height = nil,
-				border = "rounded",
+				border = "none",
 				win_options = {
 					winblend = 0,
 				},
@@ -131,17 +131,17 @@ return {
 				max_height = { 10, 0.9 },
 				min_height = { 5, 0.1 },
 				height = nil,
-				border = "rounded",
+				border = "none",
 				minimized_border = "none",
 				win_options = {
 					winblend = 0,
 				},
 			},
 			ssh = {
-				border = "rounded",
+				border = "none",
 			},
 			keymaps_help = {
-				border = "rounded",
+				border = "none",
 			},
 		})
 	end,
