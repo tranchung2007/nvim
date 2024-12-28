@@ -11,6 +11,6 @@ return {
 				},
 			},
 		})
-		vim.keymap.set({ "n", "i" }, "<C-b>", "<CMD>w<CR> <CMD>RunCode<CR>")
+		vim.keymap.set({ "n", "i" }, "<leader>b", "<CMD>w<CR> <CMD>RunCode<CR>")
 	end,
 }

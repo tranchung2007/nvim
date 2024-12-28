@@ -11,6 +11,6 @@ return {
 				null_ls.builtins.formatting.clang_format,
 			},
 		})
-		vim.keymap.set({ "n", "i" }, "<C-s>", vim.lsp.buf.format, {})
+		vim.keymap.set({ "n", "i", "v" }, "<C-s>", vim.lsp.buf.format, {})
 	end,
 }
