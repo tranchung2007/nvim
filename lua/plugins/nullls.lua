@@ -9,6 +9,7 @@ return {
 			sources = {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.clang_format,
+				null_ls.builtins.formatting.black,
 			},
 		})
 		vim.keymap.set({ "n", "i", "v" }, "<C-s>", vim.lsp.buf.format, {})
