@@ -6,8 +6,9 @@ return {
 		"rafamadriz/friendly-snippets",
 	},
 	event = { "InsertEnter" },
+
 	config = function()
-		require("luasnip.loaders.from_snipmate").lazy_load()
+		-- require("luasnip.loaders.from_snipmate").lazy_load()
 		local ls = require("luasnip")
 		local s = ls.snippet
 		local t = ls.text_node
@@ -25,6 +26,7 @@ return {
 				t("}"),
 				t({ "", "" }),
 				t("int main() {"),
+				t({ "", "{" }),
 				t({ "", "	ios_base::sync_with_stdio(0);" }),
 				t({ "", "	cin.tie(0);" }),
 				t({ "", "	cout.tie(0);" }),

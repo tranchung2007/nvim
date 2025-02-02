@@ -6,6 +6,7 @@ return {
 			require("mason").setup()
 		end,
 	},
+
 	{
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
@@ -15,6 +16,7 @@ return {
 			})
 		end,
 	},
+
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -35,21 +37,19 @@ return {
 				single_file_support = true,
 				cmd = {
 					"clangd",
+					-- "-j 3",
 					"--clang-tidy",
-					"--completion-style=bundled",
-					"--header-insertion=never",
+					-- "--completion-style=bundled",
+					-- "--header-insertion=never",
 					"--limit-references=10",
 					"--limit-results=10",
-					"--fallback-style=microsoft",
+					-- "--fallback-style=google",
 				},
 			})
 			lspconfig.html.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.bashls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.hyprls.setup({
 				capabilities = capabilities,
 			})
 		end,

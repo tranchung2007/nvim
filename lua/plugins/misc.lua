@@ -4,6 +4,7 @@ return {
 		event = "InsertEnter",
 		config = true,
 	},
+
 	{
 		"crispgm/nvim-tabline",
 		config = function()

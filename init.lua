@@ -9,6 +9,37 @@ vim.opt.relativenumber = true
 vim.opt.showtabline = 2
 vim.cmd.colorscheme("vim")
 
+vim.api.nvim_set_option("clipboard", "unnamed")
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("x", "<leader>p", '"_dP')
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+
+vim.keymap.set("n", "<leader>ce", function()
+    local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+    if #diagnostics > 0 then
+        local message = diagnostics[1].message
+        vim.fn.setreg("+", message)
+        print("Copied diagnostic: " .. message)
+    else
+        print("No diagnostic at cursor")
+    end
+end, { noremap = true, silent = true })
+
+-- go to errors in a file :/
+vim.keymap.set("n", "<leader>ne", vim.diagnostic.goto_next) -- next err
+vim.keymap.set("n", "<leader>pe", vim.diagnostic.goto_prev) -- previous err
+
+vim.keymap.set("n", "<leader>cp", function()
+	local filepath = vim.fn.expand("%:p")
+	vim.fn.setreg("+", filepath)
+	vim.fn.system("echo '" .. filepath .. "' | wl-copy")
+	print("Copied: " .. filepath)
+end, { desc = "Copy absolute path to clipboard" })
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -35,8 +66,8 @@ local opts = {
 				-- "matchparen",
 				"netrwPlugin",
 				-- "tarPlugin",
-				"tohtml",
-				"tutor",
+				-- "tohtml",
+				-- "tutor",
 				-- "zipPlugin",
 			},
 		},
