@@ -26,7 +26,6 @@ return {
 				t("}"),
 				t({ "", "" }),
 				t("int main() {"),
-				t({ "", "{" }),
 				t({ "", "	ios_base::sync_with_stdio(0);" }),
 				t({ "", "	cin.tie(0);" }),
 				t({ "", "	cout.tie(0);" }),

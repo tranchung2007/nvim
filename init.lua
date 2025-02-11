@@ -7,9 +7,12 @@ vim.opt.shiftwidth = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showtabline = 2
-vim.cmd.colorscheme("vim")
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.pumheight = 20
+-- vim.cmd.colorscheme("torte")
 
-vim.api.nvim_set_option("clipboard", "unnamed")
+vim.opt.clipboard = "unnamedplus"
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
@@ -19,14 +22,14 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 
 vim.keymap.set("n", "<leader>ce", function()
-    local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
-    if #diagnostics > 0 then
-        local message = diagnostics[1].message
-        vim.fn.setreg("+", message)
-        print("Copied diagnostic: " .. message)
-    else
-        print("No diagnostic at cursor")
-    end
+	local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+	if #diagnostics > 0 then
+		local message = diagnostics[1].message
+		vim.fn.setreg("+", message)
+		print("Copied diagnostic: " .. message)
+	else
+		print("No diagnostic at cursor")
+	end
 end, { noremap = true, silent = true })
 
 -- go to errors in a file :/
@@ -60,15 +63,33 @@ local opts = {
 	performance = {
 		rtp = {
 			disabled_plugins = {
-				"netrw",
+				"2html_plugin",
+				"tohtml",
+				"getscript",
+				"getscriptPlugin",
 				-- "gzip",
-				-- "matchit",
-				-- "matchparen",
+				"logipat",
+				"netrw",
 				"netrwPlugin",
+				"netrwSettings",
+				"netrwFileHandlers",
+				-- "matchit",
+				-- "tar",
 				-- "tarPlugin",
-				-- "tohtml",
-				-- "tutor",
+				"rrhelper",
+				"spellfile_plugin",
+				"vimball",
+				"vimballPlugin",
+				-- "zip",
 				-- "zipPlugin",
+				"tutor",
+				"rplugin",
+				"syntax",
+				"synmenu",
+				"optwin",
+				"compiler",
+				"bugreport",
+				"ftplugin",
 			},
 		},
 	},

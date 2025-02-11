@@ -1,11 +1,8 @@
 return {
 	"stevearc/oil.nvim",
-	---@module 'oil'
-	---@type oil.SetupOpts
-	opts = {},
-	-- dependencies = { { "echasnovski/mini.icons", opts = {} } },
 	config = function()
 		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+		vim.keymap.set("n", "<leader>-", require("oil").toggle_float)
 		require("oil").setup({
 			default_file_explorer = true,
 			columns = {
@@ -17,16 +14,6 @@ return {
 			buf_options = {
 				buflisted = false,
 				bufhidden = "hide",
-			},
-			win_options = {
-				wrap = false,
-				signcolumn = "no",
-				cursorcolumn = false,
-				foldcolumn = "0",
-				spell = false,
-				list = false,
-				conceallevel = 3,
-				concealcursor = "nvic",
 			},
 			delete_to_trash = true,
 			skip_confirm_for_simple_edits = false,
@@ -61,88 +48,19 @@ return {
 			use_default_keymaps = true,
 			view_options = {
 				show_hidden = false,
-				is_hidden_file = function(name, bufnr)
-					local m = name:match("^%.")
-					return m ~= nil
-				end,
-				is_always_hidden = function(name, bufnr)
-					return false
-				end,
 				natural_order = "fast",
 				case_insensitive = false,
 				sort = {
 					{ "type", "asc" },
 					{ "name", "asc" },
 				},
-				highlight_filename = function(entry, is_hidden, is_link_target, is_link_orphan)
-					return nil
-				end,
 			},
-			extra_scp_args = {},
-			git = {
-				add = function(path)
-					return false
-				end,
-				mv = function(src_path, dest_path)
-					return false
-				end,
-				rm = function(path)
-					return false
-				end,
-			},
-			float = {
-				padding = 5,
-				max_width = 80,
-				max_height = 70,
-				border = "none",
-				win_options = {
-					winblend = 0,
-				},
-				get_win_title = nil,
-				preview_split = "auto",
-				override = function(conf)
-					return conf
-				end,
-			},
-			preview_win = {
-				update_on_cursor_moved = true,
-				preview_method = "fast_scratch",
-				disable_preview = function(filename)
-					return false
-				end,
-				win_options = {},
-			},
-			confirmation = {
-				max_width = 0.9,
-				min_width = { 40, 0.4 },
-				width = nil,
-				max_height = 0.9,
-				min_height = { 5, 0.1 },
-				height = nil,
-				border = "none",
-				win_options = {
-					winblend = 0,
-				},
-			},
-			progress = {
-				max_width = 0.9,
-				min_width = { 40, 0.4 },
-				width = nil,
-				max_height = { 10, 0.9 },
-				min_height = { 5, 0.1 },
-				height = nil,
-				border = "none",
-				minimized_border = "none",
-				win_options = {
-					winblend = 0,
-				},
-			},
-			ssh = {
-				border = "none",
-			},
-			keymaps_help = {
-				border = "none",
-			},
+		})
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "oil", -- Adjust if Oil uses a specific file type identifier
+			callback = function()
+				vim.opt_local.cursorline = true
+			end,
 		})
 	end,
 }
