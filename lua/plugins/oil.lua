@@ -57,7 +57,7 @@ return {
 			},
 		})
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = "oil", -- Adjust if Oil uses a specific file type identifier
+			pattern = "oil",
 			callback = function()
 				vim.opt_local.cursorline = true
 			end,

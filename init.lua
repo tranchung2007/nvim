@@ -1,5 +1,5 @@
-vim.g.mapleader = "\\"
-vim.g.maplocalleader = "\\"
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 --vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -7,10 +7,12 @@ vim.opt.shiftwidth = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showtabline = 2
-vim.opt.swapfile = false
+vim.opt.swapfile = true
 vim.opt.undofile = true
 vim.opt.pumheight = 20
 -- vim.cmd.colorscheme("torte")
+
+vim.g.plugin_exec = 1
 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.hlsearch = true
@@ -20,6 +22,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("x", "<leader>p", '"_dP')
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>rc", ":! ")
 
 vim.keymap.set("n", "<leader>ce", function()
 	local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })

@@ -42,8 +42,8 @@ return {
 								vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"),
 								vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
 							},
-							maxPreload = 100000,
-							preloadFileSize = 10000,
+							maxPreload = 1000,
+							preloadFileSize = 1000,
 						},
 					},
 				},
@@ -60,6 +60,7 @@ return {
 					"--limit-references=10",
 					"--limit-results=10",
 					-- "--fallback-style=google",
+					"--offset-encoding=utf-16",
 				},
 			})
 			lspconfig.html.setup({
@@ -79,8 +80,6 @@ return {
 			-- vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder)
 			-- vim.keymap.set("n", "<leader>wl", function()
 			--	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-			-- end,)
-
 			vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition)
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
 			vim.keymap.set("n", "gr", vim.lsp.buf.references)
